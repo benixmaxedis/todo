@@ -14,10 +14,17 @@ export async function create(formData: FormData) {
 }
 
 // get all todo's
+
 export async function getData() {
   const data = await prisma.todo.findMany({
-    select: { title: true, id: true, isCompleted: true },
-    orderBy: { createdAt: 'desc' },
+    select: {
+      title: true,
+      id: true,
+      isCompleted: true,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
   });
 
   return data;
